@@ -1,0 +1,36 @@
+BRAINSTORMING
+
+Personajes con IVs de 0-31 para que el usuario elija
+Escenarios: Normal, Tailwind, Trick Room, Campos???
+Estados: Paralizado, Quemado, Envenenado, Dormido...
+Acciones Pokemon: Huir, Protect, Movimiento Insignia, Ataque de estado
+    Con ataques de estado nos referimos a movimientos como: Will-o-Wisp, Sleep Powder, Thunder Wave...
+
+TODO:
+Strategy pattern --> set possible strategies (UML partially done)
+Decorator pattern --> manage characters actions (huir, portect, movimiento insignia, ataque de estado) combined with side effect (fuego hace x2 a planta, etc) USAR SOBRE TODO PARA GOLPES CRITICOS
+State pattern --> control status of character during combat
+Abstract Factory pattern --> create enemies (pokemons no elegidos xd)
+Singleton pattern --> usado en la calculadora de los resultados de cada ataque --> avoid more than one instance of this in the system
+Template Method pattern--> decide next action of the enemies
+Facade pattern --> for class GameController
+Memorandum doc --> Game description + User manual + class diagram of each pattern 
+
+QUE NECESITA CADA CLASE???:
+- Character
+    - nombre, tipo, estadisticas+ivs, movimientos[3] + huir, estado (solo puede tener 1, no es reemplazable)
+- Combate
+    - Escenario (puede cambiar durante el combate)
+    - 2 pokemons
+- Damage calculator
+    - 2 pokemons
+    - atk/def || spa/spd
+    - 
+
+
+CREAR PERSONAJES ABSTRACT FACTORY PATTERN:
+- Por tipos:
+    - Planta: pilla protect y sleep Powder de MovePool.csv
+    - fuego: pilla protect y willowisp de MovePool.csv
+    - agua: pilla protect y rain dance de MovePool.csv
+- ademas pilla el movimiento caracteristico de cada uno (esta en CharacterData.csv)
