@@ -4,5 +4,5 @@ public class Character {
     public Move moves[3];
     public String status;
 
-    
+    public Character() {}
 }
