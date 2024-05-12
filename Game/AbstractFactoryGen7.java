@@ -83,6 +83,8 @@ public class AbstractFactoryGen7 implements AbstractFactory {
                     newCharacter.moves[1] = new Move(pokeData[8], pokeData[1], Integer.parseInt(pokeData[9]), Integer.parseInt(pokeData[10]), Integer.parseInt(pokeData[11]));
 
                     sc = new Scanner(movePool);
+
+                    sc.nextLine();
                     
                     while(sc.hasNextLine()) {
                         line = sc.nextLine();
@@ -133,6 +135,9 @@ public class AbstractFactoryGen7 implements AbstractFactory {
                     newCharacter.moves[1] = new Move(pokeData[8], pokeData[1], Integer.parseInt(pokeData[9]), Integer.parseInt(pokeData[10]), Integer.parseInt(pokeData[11]));
 
                     sc = new Scanner(movePool);
+
+                    sc.nextLine();
+                    sc.nextLine();
                     
                     while(sc.hasNextLine()) {
                         line = sc.nextLine();

@@ -33,6 +33,10 @@ public class AbstractFactoryGen1 implements AbstractFactory {
                         String[] moveData = line.split(",|\\n"); // Splits if there is a comma
 
                         if(moveData.length == 5) {
+                            /* for(String value : moveData) {
+                                System.out.println(value);
+                            } */
+
                             newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
                         }
                     }
@@ -77,12 +81,18 @@ public class AbstractFactoryGen1 implements AbstractFactory {
                     newCharacter.moves[1] = new Move(pokeData[8], pokeData[1], Integer.parseInt(pokeData[9]), Integer.parseInt(pokeData[10]), Integer.parseInt(pokeData[11]));
 
                     sc = new Scanner(movePool);
+
+                    sc.nextLine();
                     
                     while(sc.hasNextLine()) {
                         line = sc.nextLine();
                         String[] moveData = line.split(",|\\n"); // Splits if there is a comma
 
                         if(moveData.length == 5) {
+                            /* for(String value : moveData) {
+                                System.out.println(value);
+                            } */
+
                             newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
                         }
                     }
@@ -127,12 +137,19 @@ public class AbstractFactoryGen1 implements AbstractFactory {
                     newCharacter.moves[1] = new Move(pokeData[8], pokeData[1], Integer.parseInt(pokeData[9]), Integer.parseInt(pokeData[10]), Integer.parseInt(pokeData[11]));
 
                     sc = new Scanner(movePool);
+
+                    sc.nextLine();
+                    sc.nextLine();
                     
                     while(sc.hasNextLine()) {
                         line = sc.nextLine();
                         String[] moveData = line.split(",|\\n"); // Splits if there is a comma
 
                         if(moveData.length == 5) {
+                            /* for(String value : moveData) {
+                                System.out.println(value);
+                            } */
+
                             newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
                         }
                     }
