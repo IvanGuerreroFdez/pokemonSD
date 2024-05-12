@@ -1,7 +1,8 @@
 public class Character {
     public String name, type;
     private int baseHp, baseAtk, baseDef, baseSpA, baseSpD, baseSpe; 
-    private int hp, atk, def, spa, spd, spe;
+    public int hp;
+    private int atk, def, spa, spd, spe;
     public Move[] moves = new Move[3];
     public String status;
 
@@ -67,5 +68,9 @@ public class Character {
 
     public int getSpe() {
         return spe;
+    }
+
+    public String toString() {
+        return name;
     }
 }

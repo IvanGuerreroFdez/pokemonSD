@@ -1,11 +1,16 @@
+import java.util.Random;
+
 public abstract class Decorator implements Component {
-    protected Component component;
+    public Decorator() {}
 
-    public Decorator(Component component) {
-        this.component = component;
-    }
+    public static double crit() {
+        Random rn = new Random();
+        double critical = 1;
+        int critRand = rn.nextInt(2);
+        if (critRand == 1) {
+            critical = 1.5;
+        }
 
-    public void operation(Character attacker, Character receiver, int moveNo) {
-        component.operation(attacker, receiver, moveNo);
+        return critical;
     }
 }

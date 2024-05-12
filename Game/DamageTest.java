@@ -9,6 +9,6 @@ public class DamageTest {
             infernape.moves[1] = flareBlitz;
 
         DamageCalculator damage = new DamageCalculator();
-        damage.damageCalculator(greninja, infernape, 1);
+        damage.damageCalculator(greninja, infernape, 1, false);
     }
 }

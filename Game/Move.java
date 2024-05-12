@@ -15,7 +15,11 @@ public class Move {
         return this.name;
     }
 
+    public int getPriority() {
+        return priority;
+    }
+
     public String toString() {
-        return "patata";
+        return name;
     }
 }

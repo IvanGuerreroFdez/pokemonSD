@@ -1,3 +1,3 @@
 public interface Strategy {
-    public void action();
+    public void action(Character own, Character opposing, int opposingMove, int speedVariation);
 }
