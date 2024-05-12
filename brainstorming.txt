@@ -8,7 +8,7 @@ Acciones Pokemon: Huir, Protect, Movimiento Insignia, Ataque de estado
 
 TODO:
 Strategy pattern --> set possible strategies (UML partially done)
-Decorator pattern --> manage characters actions (huir, portect, movimiento insignia, ataque de estado) combined with side effect (fuego hace x2 a planta, etc) USAR SOBRE TODO PARA GOLPES CRITICOS
+Decorator pattern -->  PARA GOLPES CRITICOS
 State pattern --> control status of character during combat
 Abstract Factory pattern --> create enemies (pokemons no elegidos xd)
 Singleton pattern --> usado en la calculadora de los resultados de cada ataque --> avoid more than one instance of this in the system
