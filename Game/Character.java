@@ -44,4 +44,28 @@ public class Character {
         this.spd = (((2 * this.baseSpD + spdIV) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
         this.spe = (((2 * this.baseSpe + speIV) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
     }
+
+    public int getHp() {
+        return hp;
+    }
+
+    public int getAtk() {
+        return atk;
+    }
+
+    public int getDef() {
+        return def;
+    }
+
+    public int getSpA() {
+        return spa;
+    }
+
+    public int getSpD() {
+        return spd;
+    }
+
+    public int getSpe() {
+        return spe;
+    }
 }
