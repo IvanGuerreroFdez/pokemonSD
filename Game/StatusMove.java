@@ -33,7 +33,8 @@ public class StatusMove implements Strategy {
                         damage.damageCalculator(last, first, opposingMove, false);
                         break;
                     case 2: // Opponent uses status move
-                        SideEffects state = new SideEffects(opposing.moves[opposingMove], ownSideEffects);
+                        SideEffects state = new SideEffects();
+                        state.handle(opposing.moves[opposingMove], own);
                         break;
                     default:
                         System.out.println(" ");

@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class SideEffects implements State {
+public class SideEffects implements State2 {
     public static  int normal = 0;
     public static  int burn = 1;
     public static  int sleep = 2;
