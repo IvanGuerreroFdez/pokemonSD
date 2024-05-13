@@ -1,4 +1,4 @@
 public interface TemplateMethod {
-    public void PokeAction(boolean enemy);
+    public void PokeAction();
 }
 

@@ -3,44 +3,36 @@ public class SignatureMove implements Strategy {
         Character first = new Character();
         Character last = new Character();
         DamageCalculator damage = new DamageCalculator();
+        Scenario scenario = new Scenario(own.getSpe());
+        int speed = scenario.handle();
 
-        int tailwind = 1;
-
-        if(speedVariation == 1) {
-            tailwind = 2;
-        }
-
-        if(own.moves[2].getPriority() != opposing.moves[opposingMove].getPriority()) { // If the priority is different
-            if(own.moves[2].getPriority() > opposing.moves[opposingMove].getPriority()) { // Own move more priority
-                first = own;
-                last = opposing;
-            } else if(own.moves[2].getPriority() < opposing.moves[opposingMove].getPriority()) { // Opposing move more priority
-                first = opposing;
-                last = own;
-            }
-        } else if(own.getSpe() * tailwind > opposing.getSpe()) { // If usual, check speed
-            if(speedVariation == 2) { // If Trick Room is set, speeds will be inverted
-                first = opposing;
-                last = own;
-            } else {
-                first = own;
-                last = opposing;
-            }
+        if(opposingMove == 0) {
+            System.out.println(opposing.toString() + " is protecting itself!");
+            System.out.println(own.toString() + " has used " + own.moves[1].toString() + ".");
+            System.out.println(opposing.toString() + " protected itself!");
         } else {
-            if(speedVariation == 2) { // If Trick Room is set, speeds will be inverted
-                first = own;
-                last = opposing;
+            if(own.moves[1].getPriority() != opposing.moves[opposingMove].getPriority()) { // If the priority is different
+                if(own.moves[1].getPriority() > opposing.moves[opposingMove].getPriority()) { // Own move more priority
+                    first = own;
+                    last = opposing;
+                } else if(own.moves[1].getPriority() < opposing.moves[opposingMove].getPriority()) { // Opposing move more priority
+                    first = opposing;
+                    last = own;
+                }
+            } else if(speed > opposing.getSpe()) { // If usual, check speed
+                    first = own;
+                    last = opposing;
             } else {
-                first = opposing;
-                last = own;
+                    first = opposing;
+                    last = own;
             }
-        }
 
-        if(first == opposing) {
-            damage.damageCalculator(last, first, opposingMove, false);
-        } else {
-            // Apply own status move
-            damage.damageCalculator(last, first, 1, false);
+            if(first == opposing) {
+                damage.damageCalculator(last, first, opposingMove, false);
+            } else {
+                // Apply own status move
+                damage.damageCalculator(last, first, 1, false);
+            }
         }
     }
 }

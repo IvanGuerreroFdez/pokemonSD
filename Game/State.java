@@ -1,3 +1,3 @@
 public interface State {
-    public void handle();
+    public int handle();
 }
