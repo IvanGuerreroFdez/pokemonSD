@@ -23,9 +23,9 @@ public class AbstractFactoryGen5 implements AbstractFactory {
                 String[] pokeData = line.split(",|\\n"); // Splits if there is a comma
 
                 if(pokeData.length == 12) {
-                    for(String value : pokeData) {
+                    /* for(String value : pokeData) { // Test if the data is saved correctly
                         System.out.println(value);
-                    }
+                    } */
                     
                     newCharacter = new Character(pokeData[0], pokeData[1], Integer.parseInt(pokeData[2]), Integer.parseInt(pokeData[3]), 
                                                 Integer.parseInt(pokeData[4]), Integer.parseInt(pokeData[5]), Integer.parseInt(pokeData[6]), Integer.parseInt(pokeData[7]));
@@ -73,9 +73,9 @@ public class AbstractFactoryGen5 implements AbstractFactory {
                 String[] pokeData = line.split(",|\\n"); // Splits if there is a comma
 
                 if(pokeData.length == 12) {
-                    for(String value : pokeData) {
+                    /* for(String value : pokeData) { // Test if the data is saved correctly
                         System.out.println(value);
-                    }
+                    } */
                     
                     newCharacter = new Character(pokeData[0], pokeData[1], Integer.parseInt(pokeData[2]), Integer.parseInt(pokeData[3]), 
                                                 Integer.parseInt(pokeData[4]), Integer.parseInt(pokeData[5]), Integer.parseInt(pokeData[6]), Integer.parseInt(pokeData[7]));
@@ -125,9 +125,9 @@ public class AbstractFactoryGen5 implements AbstractFactory {
                 String[] pokeData = line.split(",|\\n"); // Splits if there is a comma
 
                 if(pokeData.length == 12) {
-                    for(String value : pokeData) {
+                    /* for(String value : pokeData) { // Test if the data is saved correctly
                         System.out.println(value);
-                    }
+                    } */
                     
                     newCharacter = new Character(pokeData[0], pokeData[1], Integer.parseInt(pokeData[2]), Integer.parseInt(pokeData[3]), 
                                                 Integer.parseInt(pokeData[4]), Integer.parseInt(pokeData[5]), Integer.parseInt(pokeData[6]), Integer.parseInt(pokeData[7]));

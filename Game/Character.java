@@ -5,6 +5,7 @@ public class Character {
     private int atk, def, spa, spd, spe;
     public Move[] moves = new Move[3];
     public String status;
+    public int maxHp;
 
     public Character() {
         // Assigns "Protect" as a baseDefault move for any Character
@@ -18,6 +19,7 @@ public class Character {
         // Makes the corresponding calculations to change base stats from the .csv into real stats at level 50
         // Assigns final stats
         this.hp = (((2 * baseHp) * 50) / 100) + 50 + 10; // (((2 * base) * lvl) / 100) + lvl + 10
+            this.maxHp = hp;
         this.atk = (((2 * baseAtk) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
         this.def = (((2 * baseDef) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
         this.spa = (((2 * baseSpA) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
@@ -39,6 +41,7 @@ public class Character {
     public void setIVs(int hpIV, int atkIV, int defIV, int spaIV, int spdIV, int speIV) {
         // Makes the corresponding changes with the IVs selected by the user
         this.hp = (((2 * this.baseHp + hpIV) * 50) / 100) + 50 + 10; // (((2 * base) * lvl) / 100) + lvl + 10
+            this.maxHp = hp;
         this.atk = (((2 * this.baseAtk + atkIV) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
         this.def = (((2 * this.baseDef + defIV) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
         this.spa = (((2 * this.baseSpA + spaIV) * 50) / 100) + 5; // ((2 * base) * lvl / 100) + 5
