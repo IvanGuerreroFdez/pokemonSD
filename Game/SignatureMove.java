@@ -27,11 +27,22 @@ public class SignatureMove implements Strategy {
                     last = own;
             }
 
-            if(first == opposing) {
+            if(first == opposing) { // Opposing Pokemon is faster
+                System.out.println(first.toString() + " has used " + first.moves[opposingMove]);
+                damage.damageCalculator(first, last, opposingMove, false);
+
+                if(last.hp > 0) {
+                    System.out.println(last.toString() + " has used " + last.moves[1]);
+                    damage.damageCalculator(last, first, opposingMove, false);
+                }
+            } else { // Own Pokemon is faster
+                System.out.println(last.toString() + " has used " + last.moves[1]);
                 damage.damageCalculator(last, first, opposingMove, false);
-            } else {
-                // Apply own status move
-                damage.damageCalculator(last, first, 1, false);
+
+                if(last.hp > 0) {
+                    System.out.println(first.toString() + " has used " + first.moves[opposingMove]);
+                    damage.damageCalculator(first, last, opposingMove, false);
+                }
             }
         }
     }

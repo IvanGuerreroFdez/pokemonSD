@@ -72,7 +72,7 @@ public class DamageCalculator {
 
         if(receiver.hp < 0) {
             receiver.hp = 0;
-            System.out.printf("%s fainted!", receiver.toString());
+            System.out.printf("%s fainted!\n", receiver.toString());
         }
         
         return damage;

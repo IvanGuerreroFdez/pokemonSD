@@ -13,10 +13,9 @@ public class GameController {
     private AbstractFactoryGen8 gen8 = new AbstractFactoryGen8();
     private AbstractFactoryGen9 gen9 = new AbstractFactoryGen9();
     public int points = 0;
+    Scanner sc = new Scanner(System.in);
 
     public void createProtagonist() {
-        Scanner sc = new Scanner(System.in);
-
         //Create al possible characters with its generations (Pokemons)
         listCharacters[0] = gen1.createGrass();
         listCharacters[1] = gen1.createFire();
@@ -83,8 +82,6 @@ public class GameController {
             sc.nextInt();
         
         protagonist.setIVs(hpIV, atkIV, defIV, spaIV, spdIV, speIV); // Assigns it to the character
-
-        sc.close();
     }
 
     public void randomSelectBattle() {
@@ -96,61 +93,71 @@ public class GameController {
     }
 
     public void battle(Character protagonist, Character rival) {
-        Scanner sc = new Scanner(System.in);
-
-        while(protagonist.hp > 0 || rival.hp > 0) {
-            // Menu con opciones
-            int option = 0;
-            Random rand = new Random();
-            int randomNum = rand.nextInt(3);
-            int speedVar = rand.nextInt(3);
-
-            // User interface (menu)
-            System.out.println("What will " + protagonist.toString() + " do?");
-            System.out.println("1 - Protect");
-            System.out.println("2 - " + protagonist.moves[1].toString());
-            System.out.println("3 - " + protagonist.moves[2].toString());
-            System.out.println("4 - Run");
-
-            option = sc.nextInt();
-            
-            if(sc.hasNextInt()) {
-                option = sc.nextInt();
-
-                switch (option) { // Handle turns depending on the selected option
-                    case 1: //Protect
-                        Protect protect = new Protect();
-                        protect.action(protagonist, rival, randomNum, speedVar);
-                        break;
-                    case 2: //Signature move
-                        SignatureMove signatureMove = new SignatureMove();
-                        signatureMove.action(protagonist, rival, randomNum, speedVar);
-                        break;
-                    case 3: //Status move
-                        StatusMove statusMove = new StatusMove();
-                        statusMove.action(protagonist, rival, randomNum, speedVar);
-                        break;
-                    case 4: //Run away
-                        Run run = new Run();
-                        run.action(protagonist, rival, randomNum, speedVar);
-                        System.out.println("You got " + points + " points.");
-                        System.exit(0);
-                        break;
-                    default:
-                        System.out.println(" ");
-                        break;
-                } // end switch
-            } else {
-                System.out.println("Invalid input. Please enter a valid option.");
-                sc.next(); // Clear the invalid input
-            }
-
-            
-        } // end while
-
-        sc.close();
+        do {
+            turn(protagonist, rival);
+        } while(protagonist.hp > 0 && rival.hp > 0);
 
         points++;
         protagonist.hp = protagonist.maxHp; // Heals protagonist
+        protagonist.status = "Normal"; // Recovers normal status of the protagonist
+    }
+
+    public void turn(Character protagonist, Character rival) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt(3);
+        int speedVar = rand.nextInt(3);
+
+        // Pokemon info
+        System.out.println("///////////////////////////");
+        System.out.println("Opposing Pokemon: " + rival.toString() + " | Lvl. 50");
+        System.out.println("HP: " + rival.hp * 100 / rival.maxHp + "% | Status: " + rival.status);
+        System.out.println("Own Pokemon: " + protagonist.toString() + " | Lvl. 50");
+        System.out.println("HP: " + protagonist.hp + "/" + protagonist.maxHp + " | Status: " + protagonist.status);
+        System.out.println("");
+
+        // User interface (menu)
+        System.out.println("What will " + protagonist.toString() + " do?");
+        System.out.println("1 - Protect");
+        System.out.println("2 - " + protagonist.moves[1].toString());
+        System.out.println("3 - " + protagonist.moves[2].toString());
+        System.out.println("4 - Run");
+
+        int option = 0;
+
+        option = sc.nextInt();
+        System.out.println("///////////////////////////");
+
+        switch (option) { // Handle turns depending on the selected option
+            case 1: //Protect
+                Protect protect = new Protect();
+                protect.action(protagonist, rival, randomNum, speedVar);
+                break;
+            case 2: //Signature move
+                SignatureMove signatureMove = new SignatureMove();
+                signatureMove.action(protagonist, rival, randomNum, speedVar);
+                break;
+            case 3: //Status move
+                StatusMove statusMove = new StatusMove();
+                statusMove.action(protagonist, rival, randomNum, speedVar);
+                break;
+            case 4: //Run away
+                Run run = new Run();
+                run.action(protagonist, rival, randomNum, speedVar);
+                gameOver();
+                break;
+            default:
+                break;
+        } // end switch
+    }
+
+    public void gameOver() {
+        System.out.println("GAME OVER.");
+        System.out.println("You got " + points + " points.");
+        closeScanner();
+        System.exit(0);
+    }
+
+    public void closeScanner() {
+        sc.close();
     }
 }

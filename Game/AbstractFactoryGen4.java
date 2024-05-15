@@ -34,12 +34,13 @@ public class AbstractFactoryGen4 implements AbstractFactory {
 
                     sc = new Scanner(movePool);
                     
-                    while(sc.hasNextLine()) {
+                    while(sc.hasNextLine()) { // Gets the corresponding line
                         line = sc.nextLine();
-                        String[] moveData = line.split(",|\\n"); // Splits if there is a comma
-
-                        if(moveData.length == 5) {
-                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
+                        String[] moveData = line.split(",|\\n"); // Stores the contents of the line in this array splitting if there is a comma
+    
+                        if(moveData.length == 5 && moveData[0].equals("Sleep Powder")) { // Check if the move is Sleep Powder
+                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4])); // Stores the second move of the character
+                            break; // Exit the inner loop once Sleep Powder is found
                         }
                     }
                 }
@@ -86,12 +87,13 @@ public class AbstractFactoryGen4 implements AbstractFactory {
 
                     sc.nextLine();
                     
-                    while(sc.hasNextLine()) {
+                    while(sc.hasNextLine()) { // Gets the corresponding line
                         line = sc.nextLine();
-                        String[] moveData = line.split(",|\\n"); // Splits if there is a comma
-
-                        if(moveData.length == 5) {
-                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
+                        String[] moveData = line.split(",|\\n"); // Stores the contents of the line in this array splitting if there is a comma
+    
+                        if(moveData.length == 5 && moveData[0].equals("Will-O-Wisp")) { // Check if the move is Sleep Powder
+                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4])); // Stores the second move of the character
+                            break; // Exit the inner loop once Sleep Powder is found
                         }
                     }
                 }
@@ -139,12 +141,13 @@ public class AbstractFactoryGen4 implements AbstractFactory {
                     sc.nextLine();
                     sc.nextLine();
                     
-                    while(sc.hasNextLine()) {
+                    while(sc.hasNextLine()) { // Gets the corresponding line
                         line = sc.nextLine();
-                        String[] moveData = line.split(",|\\n"); // Splits if there is a comma
-
-                        if(moveData.length == 5) {
-                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4]));
+                        String[] moveData = line.split(",|\\n"); // Stores the contents of the line in this array splitting if there is a comma
+    
+                        if(moveData.length == 5 && moveData[0].equals("Rain Dance")) { // Check if the move is Rain Dance
+                            newCharacter.moves[2] = new Move(moveData[0], moveData[1], Integer.parseInt(moveData[2]), Integer.parseInt(moveData[3]), Integer.parseInt(moveData[4])); // Stores the second move of the character
+                            break; // Exit the inner loop once Sleep Powder is found
                         }
                     }
                 }

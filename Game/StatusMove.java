@@ -27,21 +27,43 @@ public class StatusMove implements Strategy {
                     last = own;
             }
 
+            SideEffects state = new SideEffects();
             if(first == opposing) {
                 switch(opposingMove) {
                     case 1: // Opponent deals damage
-                        damage.damageCalculator(last, first, opposingMove, false);
+                        System.out.println(first.toString() + " has used " + first.moves[opposingMove]);
+                        damage.damageCalculator(first, last, opposingMove, false);
                         break;
                     case 2: // Opponent uses status move
-                        SideEffects state = new SideEffects();
+                        System.out.println(first.toString() + " has used " + first.moves[opposingMove]);
                         state.handle(opposing.moves[opposingMove], own);
                         break;
                     default:
                         System.out.println(" ");
                         break;
                 }
+
+                if(last.hp > 0) {
+                    System.out.println(last.toString() + " has used " + last.moves[2]);
+                    state.handle(own.moves[2], opposing);
+                }
             } else {
-                // Apply own status move
+                System.out.println(last.toString() + " has used " + last.moves[2]);
+                state.handle(own.moves[2], opposing);
+
+                switch(opposingMove) {
+                    case 1: // Opponent deals damage
+                        System.out.println(last.toString() + " has used " + last.moves[opposingMove]);
+                        damage.damageCalculator(last, first, opposingMove, false);
+                        break;
+                    case 2: // Opponent uses status move
+                        System.out.println(last.toString() + " has used " + last.moves[opposingMove]);
+                        state.handle(opposing.moves[opposingMove], own);
+                        break;
+                    default:
+                        System.out.println(" ");
+                        break;
+                }
             }
         }
     }

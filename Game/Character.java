@@ -34,6 +34,8 @@ public class Character {
         this.baseSpD = baseSpD;
         this.baseSpe = baseSpe;
 
+        this.status = "Normal";
+
         // Assigns "Protect" as a baseDefault move for any Character
         this.moves[0] = new Move("Protect", "Normal", 0, 100, +4);
     }

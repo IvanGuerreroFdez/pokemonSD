@@ -9,5 +9,7 @@ public class Main {
             gameController.randomSelectBattle();
             i++;
         }
+
+        gameController.gameOver();
     }
 }
